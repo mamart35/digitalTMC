@@ -14,4 +14,9 @@ public class MemberService {
 	public Member getMemberByID (long id) {
 		return mr.getMemberById(id);
 	}
+	public Member updateMember(Member newMember) {
+		Member member= mr.getMemberByName(newMember.getName());
+		member.setAttendanceNumber(member.getAttendanceNumber()+1);
+		return mr.save(member);
+	}
 }
